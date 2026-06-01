@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaInstagram } from "react-icons/fa";
-import { FiExternalLink, FiMic } from "react-icons/fi";
+import { FiExternalLink } from "react-icons/fi";
 import { type ElementType } from "react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
