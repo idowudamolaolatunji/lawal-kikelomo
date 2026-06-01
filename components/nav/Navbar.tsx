@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMenu, FiX, FiWind } from "react-icons/fi";
+import { FiMenu, FiX } from "react-icons/fi";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "About",    href: "#about"    },
@@ -40,7 +41,7 @@ export default function Navbar() {
       >
         {/* Logo */}
         <a href="#" aria-label="Kikelomo Lawal — home" className="flex items-center gap-2">
-          <FiWind size={16} style={{ color: "var(--color-mint)" }} />
+          <Image src="/kikelomo.png" alt="Kikelome" width={100} height={100} priority className="w-5 h-5" />
           <span
             className="text-sm font-medium uppercase tracking-[0.18em]"
             style={{ color: "var(--color-text)", fontFamily: "var(--font-dm-mono)" }}
