@@ -4,6 +4,7 @@ import { useState, type CSSProperties } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FiMail, FiCheck } from "react-icons/fi";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -38,10 +39,17 @@ const SOCIAL_LINKS = [
     color: "var(--color-lavender)",
   },
   {
+    icon: <FaXTwitter size={19} />,
+    label: "Twitter/X",
+    handle: "@allahspec",
+    href: "https://x.com/allahspec",
+    color: "var(--color-lavender)",
+  },
+  {
     icon: <FiMail size={19} />,
     label: "Email",
-    handle: "kikelomo@urbanbetter.science",
-    href: "mailto:kikelomo@urbanbetter.science",
+    handle: "kikelomolawal@gmail.con",
+    href: "mailto:kikelomolawal@gmail.con",
     color: "var(--color-mint)",
   },
 ];

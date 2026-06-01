@@ -1,6 +1,7 @@
 "use client";
 
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FiMail, FiWind } from "react-icons/fi";
 
 const NAV_LINKS = [
@@ -23,9 +24,14 @@ const SOCIAL = [
     href: "https://www.linkedin.com/in/kikelomo-lawal-7b84ba288/",
   },
   {
+    icon: <FaXTwitter size={16} />,
+    label: "@allahspec",
+    href: "https://x.com/allahspec",
+  },
+  {
     icon: <FiMail size={16} />,
-    label: "kikelomo@urbanbetter.science",
-    href: "mailto:kikelomo@urbanbetter.science",
+    label: "kikelomolawal@gmail.con",
+    href: "mailto:kikelomolawal@gmail.con",
   },
 ];
 
