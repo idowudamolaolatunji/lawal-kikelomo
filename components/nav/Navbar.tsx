@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMenu, FiX } from "react-icons/fi";
+import { FiMenu, FiX, FiWind } from "react-icons/fi";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 
 const NAV_LINKS = [
@@ -39,20 +39,11 @@ export default function Navbar() {
         aria-label="Main navigation"
       >
         {/* Logo */}
-        <a href="#" aria-label="Kikelomo Lawal — home" className="flex items-center gap-2.5">
+        <a href="#" aria-label="Kikelomo Lawal — home" className="flex items-center gap-2">
+          <FiWind size={16} style={{ color: "var(--color-mint)" }} />
           <span
-            className="flex items-center justify-center w-9 h-9 rounded-lg text-sm font-bold tracking-tight select-none"
-            style={{
-              background: "linear-gradient(135deg, var(--color-purple-mid), var(--color-purple-soft))",
-              fontFamily: "var(--font-playfair)",
-              color: "var(--color-text)",
-            }}
-          >
-            KL
-          </span>
-          <span
-            className="hidden sm:block text-xs font-medium uppercase tracking-[0.18em]"
-            style={{ color: "var(--color-muted)", fontFamily: "var(--font-dm-mono)" }}
+            className="text-sm font-medium uppercase tracking-[0.18em]"
+            style={{ color: "var(--color-text)", fontFamily: "var(--font-dm-mono)" }}
           >
             allahspec
           </span>

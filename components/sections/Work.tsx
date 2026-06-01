@@ -1,13 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiWind, FiDroplet, FiCode, FiMic } from "react-icons/fi";
+import { MdDirectionsRun } from "react-icons/md";
+import { type ElementType } from "react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const ROLES = [
+const ROLES: {
+  Icon: ElementType;
+  org: string;
+  orgColor: string;
+  title: string;
+  period: string;
+  description: string;
+  href: string;
+}[] = [
   {
-    icon: "🏃",
+    Icon: MdDirectionsRun,
     org: "UrbanBetter",
     orgColor: "var(--color-mint)",
     title: "Run Leader & Environmental Researcher",
@@ -17,7 +27,7 @@ const ROLES = [
     href: "https://urbanbetter.science",
   },
   {
-    icon: "💨",
+    Icon: FiWind,
     org: "CleanAir360",
     orgColor: "var(--color-lavender)",
     title: "Founder",
@@ -27,7 +37,7 @@ const ROLES = [
     href: "",
   },
   {
-    icon: "🌊",
+    Icon: FiDroplet,
     org: "WaveWise",
     orgColor: "var(--color-sage)",
     title: "Co-Founder",
@@ -37,7 +47,7 @@ const ROLES = [
     href: "",
   },
   {
-    icon: "💻",
+    Icon: FiCode,
     org: "Frontend Development",
     orgColor: "var(--color-purple-soft)",
     title: "Developer",
@@ -47,7 +57,7 @@ const ROLES = [
     href: "",
   },
   {
-    icon: "🎤",
+    Icon: FiMic,
     org: "Climate Speaking",
     orgColor: "var(--color-mint)",
     title: "Speaker & Content Creator",
@@ -111,7 +121,9 @@ export default function Work() {
               >
                 {/* Header row */}
                 <div className="flex items-start justify-between gap-2">
-                  <span className="text-2xl">{role.icon}</span>
+                  <span style={{ color: role.orgColor }}>
+                    <role.Icon size={22} />
+                  </span>
                   <span
                     className="text-[10px] uppercase tracking-widest px-2 py-1 rounded shrink-0"
                     style={{

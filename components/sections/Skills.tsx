@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { FiFeather, FiCode } from "react-icons/fi";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -104,7 +105,7 @@ export default function Skills() {
             className="flex flex-col gap-5"
           >
             <div className="flex items-center gap-2.5 mb-2">
-              <span className="text-xl">🌿</span>
+              <FiFeather size={18} style={{ color: "var(--color-mint)" }} />
               <h3
                 className="text-lg font-semibold"
                 style={{ color: "var(--color-mint)", fontFamily: "var(--font-playfair)" }}
@@ -138,7 +139,7 @@ export default function Skills() {
             className="flex flex-col gap-5"
           >
             <div className="flex items-center gap-2.5 mb-2">
-              <span className="text-xl">💻</span>
+              <FiCode size={18} style={{ color: "var(--color-purple-soft)" }} />
               <h3
                 className="text-lg font-semibold"
                 style={{ color: "var(--color-purple-soft)", fontFamily: "var(--font-playfair)" }}

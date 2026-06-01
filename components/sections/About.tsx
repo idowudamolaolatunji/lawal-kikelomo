@@ -1,17 +1,21 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
+import { FiMapPin, FiGlobe, FiWind, FiDroplet, FiCode, FiMic } from "react-icons/fi";
+import { MdDirectionsRun } from "react-icons/md";
+import { type ElementType } from "react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const FACT_CARDS = [
-  { icon: "📍", label: "Location",   value: "Lagos, Nigeria"        },
-  { icon: "🌍", label: "Org",        value: "UrbanBetter Fellow"    },
-  { icon: "🏃", label: "Activity",   value: "Cityzens Run Leader"   },
-  { icon: "🌊", label: "Initiative", value: "WaveWise Co-Founder"   },
-  { icon: "💨", label: "Initiative", value: "CleanAir360 Founder"   },
-  { icon: "💻", label: "Role",       value: "Frontend Developer"    },
-  { icon: "🎤", label: "Role",       value: "Climate Speaker"       },
+const FACT_CARDS: { Icon: ElementType; label: string; value: string }[] = [
+  { Icon: FiMapPin,         label: "Location",   value: "Lagos, Nigeria"        },
+  { Icon: FiGlobe,          label: "Org",        value: "UrbanBetter Fellow"    },
+  { Icon: MdDirectionsRun,  label: "Activity",   value: "Cityzens Run Leader"   },
+  { Icon: FiDroplet,        label: "Initiative", value: "WaveWise Co-Founder"   },
+  { Icon: FiWind,           label: "Initiative", value: "CleanAir360 Founder"   },
+  { Icon: FiCode,           label: "Role",       value: "Frontend Developer"    },
+  { Icon: FiMic,            label: "Role",       value: "Climate Speaker"       },
 ];
 
 export default function About() {
@@ -34,7 +38,7 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: EASE, delay: 0.08 }}
-          className="mb-16"
+          className="mb-10"
           style={{
             fontFamily: "var(--font-playfair)",
             fontSize: "clamp(2rem, 4vw, 3rem)",
@@ -45,6 +49,30 @@ export default function About() {
         >
           The person behind the work.
         </motion.h2>
+
+        {/* Banner image strip */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: EASE, delay: 0.12 }}
+          className="relative w-full h-52 sm:h-64 rounded-2xl overflow-hidden mb-14"
+        >
+          <Image
+            src="https://pbs.twimg.com/profile_banners/1506436390090903554/1719081441/1500x500"
+            alt="Kikelomo Lawal — environmental advocacy and community work"
+            fill
+            className="object-cover object-top"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0"
+            style={{
+              background:
+                "linear-gradient(to bottom, rgba(13,13,18,0.15) 0%, rgba(13,13,18,0.65) 100%)",
+            }}
+          />
+        </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-start">
           {/* ── Bio text ── */}
@@ -133,7 +161,12 @@ export default function About() {
                   borderColor: "var(--color-border)",
                 }}
               >
-                <span className="text-xl shrink-0">{card.icon}</span>
+                <span
+                  className="shrink-0"
+                  style={{ color: "var(--color-purple-soft)" }}
+                >
+                  <card.Icon size={17} />
+                </span>
                 <div>
                   <p
                     className="text-[10px] uppercase tracking-widest mb-0.5"

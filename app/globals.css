@@ -69,21 +69,13 @@ section[id] {
   border-bottom: 1px solid var(--color-border);
 }
 
-/* Hero animated gradient background */
-@keyframes gradientShift {
-  0%   { background-position: 0% 50%; }
-  50%  { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
+/* Hero static gradient background */
 .hero-bg {
   background:
-    radial-gradient(ellipse at 20% 50%, rgba(61, 31, 107, 0.4) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(126, 206, 196, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse at 60% 80%, rgba(107, 63, 160, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 15% 55%, rgba(61, 31, 107, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 18%, rgba(126, 206, 196, 0.10) 0%, transparent 48%),
+    radial-gradient(ellipse at 58% 85%, rgba(107, 63, 160, 0.22) 0%, transparent 45%),
     var(--color-bg);
-  background-size: 300% 300%;
-  animation: gradientShift 12s ease infinite;
 }
 
 /* Scroll indicator bounce */

@@ -1,11 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiWind, FiDroplet, FiCode } from "react-icons/fi";
+import { MdDirectionsRun } from "react-icons/md";
+import { type ElementType } from "react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-const PROJECTS = [
+const PROJECTS: {
+  title: string;
+  tags: string[];
+  tagColor: string;
+  description: string;
+  status: string;
+  statusColor: string;
+  Visual: ElementType;
+  bgGradient: string;
+  href: string;
+}[] = [
   {
     title: "WaveWise",
     tags: ["Climate Resilience", "Community"],
@@ -14,7 +26,7 @@ const PROJECTS = [
       "A multiphase initiative in Itowolo, Lagos State — combining climate education, youth leadership, and advocacy to tackle persistent flooding and environmental degradation. Co-founded with Munnir Adams (Clime With Me).",
     status: "Active",
     statusColor: "var(--color-sage)",
-    visual: "🌊",
+    Visual: FiDroplet,
     bgGradient: "135deg, rgba(61,31,107,0.55) 0%, rgba(13,13,18,0.75) 100%",
     href: "",
   },
@@ -26,7 +38,7 @@ const PROJECTS = [
       "An initiative to bring air quality monitoring and education directly to vulnerable Lagos communities. Evidence gathered powers advocacy campaigns for cleaner air.",
     status: "Active",
     statusColor: "var(--color-mint)",
-    visual: "💨",
+    Visual: FiWind,
     bgGradient: "135deg, rgba(19,77,80,0.55) 0%, rgba(13,13,18,0.75) 100%",
     href: "",
   },
@@ -38,7 +50,7 @@ const PROJECTS = [
       "Monthly fitness drives at National Stadium Surulere, Lagos. Data runs measuring PM2.5, temperature, and pollutants along marathon routes, feeding into World Athletics' global clean air initiative.",
     status: "Ongoing",
     statusColor: "var(--color-lavender)",
-    visual: "🏃",
+    Visual: MdDirectionsRun,
     bgGradient: "135deg, rgba(61,31,107,0.4) 0%, rgba(19,77,80,0.4) 100%",
     href: "https://urbanbetter.science",
   },
@@ -50,7 +62,7 @@ const PROJECTS = [
       "This very site — built with Next.js 15, React 19, TypeScript, Tailwind CSS v4, and Framer Motion. Designed to breathe.",
     status: "You're looking at it",
     statusColor: "var(--color-purple-soft)",
-    visual: "💻",
+    Visual: FiCode,
     bgGradient: "135deg, rgba(61,31,107,0.6) 0%, rgba(107,63,160,0.3) 100%",
     href: "",
   },
@@ -118,10 +130,10 @@ export default function Projects() {
               >
                 {/* Visual header */}
                 <div
-                  className="h-36 flex items-center justify-center text-6xl relative overflow-hidden"
+                  className="h-36 flex items-center justify-center relative overflow-hidden"
                   style={{ background: `linear-gradient(${project.bgGradient})` }}
                 >
-                  {project.visual}
+                  <project.Visual size={52} style={{ color: project.tagColor, opacity: 0.75 }} />
                   <div
                     aria-hidden="true"
                     className="absolute inset-0"

@@ -1,9 +1,10 @@
 "use client";
 
 import { type ReactNode } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { FiChevronDown } from "react-icons/fi";
-import ParticleCanvas from "@/components/ui/ParticleCanvas";
+import { FiChevronDown, FiWind, FiDroplet } from "react-icons/fi";
+import { MdDirectionsRun } from "react-icons/md";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -19,7 +20,7 @@ function FloatingChip({ children, delay, className }: ChipProps) {
       initial={{ opacity: 0, scale: 0.85 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, delay, ease: EASE }}
-      className={`absolute ${className} px-3 py-1.5 rounded-full text-xs font-medium border whitespace-nowrap`}
+      className={`absolute ${className} flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border whitespace-nowrap`}
       style={{
         background: "rgba(19, 17, 30, 0.92)",
         borderColor: "var(--color-border)",
@@ -45,8 +46,6 @@ export default function Hero() {
       id="home"
       className="hero-bg relative min-h-screen flex items-center overflow-hidden"
     >
-      <ParticleCanvas />
-
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-5 gap-12 items-center py-28">
         {/* ── Left: text ── */}
         <div className="lg:col-span-3 flex flex-col gap-7">
@@ -153,35 +152,33 @@ export default function Hero() {
         >
           {/* Portrait circle */}
           <div
-            className="relative w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full flex items-center justify-center text-7xl overflow-hidden"
+            className="relative w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden"
             style={{
-              background:
-                "linear-gradient(135deg, rgba(61,31,107,0.85) 0%, rgba(107,63,160,0.6) 100%)",
               border: "2px solid rgba(155, 110, 212, 0.3)",
-              boxShadow: "0 0 80px rgba(107, 63, 160, 0.25)",
+              boxShadow: "0 0 60px rgba(107, 63, 160, 0.2)",
             }}
           >
-            {/* Replace with actual <Image src="/kikelomo.jpg" fill … /> */}
-            🌬️
-            <div
-              aria-hidden="true"
-              className="absolute inset-0 rounded-full pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 30% 25%, rgba(126,206,196,0.18) 0%, transparent 65%)",
-              }}
+            <Image
+              src="https://pbs.twimg.com/profile_images/1804584419560198144/JtdcGEo5_400x400.jpg"
+              alt="Kikelomo Lawal"
+              fill
+              className="object-cover"
+              priority
             />
           </div>
 
           {/* Floating chips */}
           <FloatingChip delay={0.65} className="-top-2 -left-4 sm:-left-10">
-            🏃 Run Leader @ UrbanBetter
+            <MdDirectionsRun size={13} />
+            Run Leader @ UrbanBetter
           </FloatingChip>
           <FloatingChip delay={0.8} className="bottom-16 -right-2 sm:-right-6">
-            💨 CleanAir360 Founder
+            <FiWind size={12} />
+            CleanAir360 Founder
           </FloatingChip>
           <FloatingChip delay={0.95} className="-bottom-2 left-0 sm:left-4">
-            🌊 WaveWise Co-founder
+            <FiDroplet size={12} />
+            WaveWise Co-founder
           </FloatingChip>
         </motion.div>
       </div>

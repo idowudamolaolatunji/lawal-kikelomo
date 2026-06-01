@@ -1,8 +1,10 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { FaInstagram } from "react-icons/fa";
-import { FiExternalLink } from "react-icons/fi";
+import { FiExternalLink, FiMic } from "react-icons/fi";
+import { type ElementType } from "react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -15,23 +17,33 @@ const TOPICS = [
   "Community-Led Research",
 ];
 
-const IG_POSTS = [
+const IG_POSTS: {
+  photo?: string;
+  Icon?: ElementType;
+  iconColor?: string;
+  caption: string;
+  date: string;
+  gradient: string;
+}[] = [
   {
-    emoji: "🏃",
+    photo:
+      "https://pbs.twimg.com/media/HJGqyqpXIAAa69f?format=jpg&name=large",
     caption:
       "Data run at National Stadium, Surulere. Measuring air quality along marathon routes — every step counts.",
     date: "March 2025",
-    gradient: "135deg, rgba(19,77,80,0.55) 0%, rgba(13,13,18,0.8) 100%",
+    gradient: "135deg, rgba(19,77,80,0.3) 0%, rgba(13,13,18,0.5) 100%",
   },
   {
-    emoji: "💨",
+    photo:
+      "https://pbs.twimg.com/media/HIhc-y6W0AALjaP?format=jpg&name=large",
     caption:
       "CleanAir360 community workshop in Itowolo — because every community deserves clean air.",
     date: "February 2025",
-    gradient: "135deg, rgba(61,31,107,0.55) 0%, rgba(13,13,18,0.8) 100%",
+    gradient: "135deg, rgba(61,31,107,0.3) 0%, rgba(13,13,18,0.5) 100%",
   },
   {
-    emoji: "🎤",
+    photo: "https://pbs.twimg.com/media/HJGqyqfWcAAFImk?format=jpg&name=large",
+    iconColor: "var(--color-purple-soft)",
     caption:
       "Speaking at Youth Climate Forum Lagos. The data is clear. The air doesn't lie.",
     date: "January 2025",
@@ -201,16 +213,27 @@ export default function Speaking() {
                 }}
               >
                 <div
-                  className="h-44 flex items-center justify-center text-5xl relative"
+                  className="h-44 relative overflow-hidden"
                   style={{ background: `linear-gradient(${post.gradient})` }}
                 >
-                  {post.emoji}
+                  {post.photo ? (
+                    <Image
+                      src={post.photo}
+                      alt={post.caption}
+                      fill
+                      className="object-cover"
+                    />
+                  ) : post.Icon ? (
+                    <div className="flex items-center justify-center h-full">
+                      <post.Icon size={44} style={{ color: post.iconColor, opacity: 0.8 }} />
+                    </div>
+                  ) : null}
                   <div
                     aria-hidden="true"
                     className="absolute inset-0"
                     style={{
                       background:
-                        "radial-gradient(ellipse at 50% 100%, rgba(107,63,160,0.2) 0%, transparent 70%)",
+                        "linear-gradient(to bottom, transparent 40%, rgba(13,13,18,0.55) 100%)",
                     }}
                   />
                 </div>
