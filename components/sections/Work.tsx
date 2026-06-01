@@ -111,12 +111,10 @@ export default function Work() {
               <motion.div
                 whileHover={{ y: -5, boxShadow: "0 16px 48px rgba(107, 63, 160, 0.22)" }}
                 transition={{ duration: 0.2 }}
-                className="relative rounded-2xl p-6 border h-full flex flex-col gap-4 overflow-hidden"
+                className="relative rounded-2xl p-6 h-full flex flex-col gap-4 overflow-hidden"
                 style={{
                   background: "var(--color-bg)",
                   borderColor: "var(--color-border)",
-                  borderTopWidth: 2,
-                  borderTopColor: role.orgColor,
                 }}
               >
                 {/* Header row */}

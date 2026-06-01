@@ -89,7 +89,7 @@ export default function Hero() {
             className="text-lg leading-[1.75] max-w-md"
             style={{ color: "var(--color-muted)" }}
           >
-            I research the air we breathe,
+            I observe the air we breathe,
             <br />
             run the streets to measure it,
             <br />

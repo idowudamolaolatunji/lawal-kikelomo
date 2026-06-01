@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FiExternalLink, FiWind, FiDroplet, FiCode } from "react-icons/fi";
 import { MdDirectionsRun } from "react-icons/md";
 import { type ElementType } from "react";
+import Image from "next/image";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -14,7 +15,8 @@ const PROJECTS: {
   description: string;
   status: string;
   statusColor: string;
-  Visual: ElementType;
+  // Visual: ElementType;
+  visual: string;
   bgGradient: string;
   href: string;
 }[] = [
@@ -26,7 +28,7 @@ const PROJECTS: {
       "A multiphase initiative in Itowolo, Lagos State — combining climate education, youth leadership, and advocacy to tackle persistent flooding and environmental degradation. Co-founded with Munnir Adams (Clime With Me).",
     status: "Active",
     statusColor: "var(--color-sage)",
-    Visual: FiDroplet,
+    visual: "https://wavewise.com/wp-content/uploads//2025/05/Wavewise-White.svg",
     bgGradient: "135deg, rgba(61,31,107,0.55) 0%, rgba(13,13,18,0.75) 100%",
     href: "",
   },
@@ -38,7 +40,7 @@ const PROJECTS: {
       "An initiative to bring air quality monitoring and education directly to vulnerable Lagos communities. Evidence gathered powers advocacy campaigns for cleaner air.",
     status: "Active",
     statusColor: "var(--color-mint)",
-    Visual: FiWind,
+    visual: "https://cleanair360.com/wp-content/uploads/2022/01/clean-air-360-01.svg",
     bgGradient: "135deg, rgba(19,77,80,0.55) 0%, rgba(13,13,18,0.75) 100%",
     href: "",
   },
@@ -50,22 +52,22 @@ const PROJECTS: {
       "Monthly fitness drives at National Stadium Surulere, Lagos. Data runs measuring PM2.5, temperature, and pollutants along marathon routes, feeding into World Athletics' global clean air initiative.",
     status: "Ongoing",
     statusColor: "var(--color-lavender)",
-    Visual: MdDirectionsRun,
+    visual: "https://pbs.twimg.com/media/HIhc-y1XsAACc84?format=jpg&name=large",
     bgGradient: "135deg, rgba(61,31,107,0.4) 0%, rgba(19,77,80,0.4) 100%",
-    href: "https://urbanbetter.science",
-  },
-  {
-    title: "Portfolio Website",
-    tags: ["Frontend Development"],
-    tagColor: "var(--color-purple-soft)",
-    description:
-      "This very site — built with Next.js 15, React 19, TypeScript, Tailwind CSS v4, and Framer Motion. Designed to breathe.",
-    status: "You're looking at it",
-    statusColor: "var(--color-purple-soft)",
-    Visual: FiCode,
-    bgGradient: "135deg, rgba(61,31,107,0.6) 0%, rgba(107,63,160,0.3) 100%",
     href: "",
   },
+  // {
+  //   title: "Portfolio Website",
+  //   tags: ["Frontend Development"],
+  //   tagColor: "var(--color-purple-soft)",
+  //   description:
+  //     "This very site — built with Next.js 15, React 19, TypeScript, Tailwind CSS v4, and Framer Motion. Designed to breathe.",
+  //   status: "You're looking at it",
+  //   statusColor: "var(--color-purple-soft)",
+  //   visual: "https://pbs.twimg.com/media/GHd9nVPXYAA_a21?format=jpg&name=large",
+  //   bgGradient: "135deg, rgba(61,31,107,0.6) 0%, rgba(107,63,160,0.3) 100%",
+  //   href: "",
+  // },
 ];
 
 export default function Projects() {
@@ -133,7 +135,9 @@ export default function Projects() {
                   className="h-36 flex items-center justify-center relative overflow-hidden"
                   style={{ background: `linear-gradient(${project.bgGradient})` }}
                 >
-                  <project.Visual size={52} style={{ color: project.tagColor, opacity: 0.75 }} />
+                  {/* <project.Visual size={52} style={{ color: project.tagColor, opacity: 0.75 }} /> */}
+
+                  <Image src={project?.visual} alt={project?.visual} width={600} height={400} />
                   <div
                     aria-hidden="true"
                     className="absolute inset-0"

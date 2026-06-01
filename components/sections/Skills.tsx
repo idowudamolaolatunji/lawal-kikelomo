@@ -20,7 +20,7 @@ const ENV_SKILLS: { name: string; level: Level }[] = [
 const TECH_SKILLS: { name: string; level: Level }[] = [
   { name: "Frontend Development (React / Next.js)", level: "Proficient"},
   { name: "TypeScript & JavaScript",                level: "Proficient"},
-  { name: "Tailwind CSS",                           level: "Expert"    },
+  { name: "Tailwind CSS",                           level: "Familiar"    },
   { name: "Data Visualization",                     level: "Familiar"  },
   { name: "Community Management",                   level: "Expert"    },
   { name: "Digital Storytelling",                   level: "Expert"    },

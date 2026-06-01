@@ -96,7 +96,7 @@ export default function Speaking() {
           style={{ color: "var(--color-muted)" }}
         >
           Kikelomo speaks at youth climate events, environmental conferences, and community
-          gatherings — translating data and field research into stories that move people.
+          gatherings — translating data and field observations into stories that move people.
         </motion.p>
 
         {/* Topic pills */}
