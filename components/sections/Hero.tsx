@@ -48,7 +48,7 @@ export default function Hero() {
     >
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-5 gap-12 items-center py-28">
         {/* ── Left: text ── */}
-        <div className="lg:col-span-3 flex flex-col gap-7">
+        <div className="lg:col-span-3 flex flex-col gap-7 items-center lg:items-start text-center lg:text-left">
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export default function Hero() {
             className="text-xs font-semibold uppercase tracking-[0.22em]"
             style={{ color: "var(--color-mint)", fontFamily: "var(--font-dm-mono)" }}
           >
-            Environmental Advocate · Run Leader · Developer
+            Environmental Advocate · Run Leader · Frontend Developer
           </motion.p>
 
           <motion.h1
@@ -86,7 +86,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.4 }}
-            className="text-lg leading-[1.75] max-w-md"
+            className="text-lg leading-[1.75] max-w-md mx-auto lg:mx-0"
             style={{ color: "var(--color-muted)" }}
           >
             I observe the air we breathe,
@@ -100,11 +100,11 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: EASE, delay: 0.55 }}
-            className="flex flex-wrap gap-4"
+            className="flex gap-3"
           >
             <button
               onClick={() => scrollTo("#projects")}
-              className="px-7 py-3 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer"
+              className="px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap"
               style={{ background: "var(--color-purple-mid)", color: "var(--color-text)" }}
               onMouseEnter={(e) =>
                 ((e.currentTarget as HTMLButtonElement).style.background =
@@ -119,7 +119,7 @@ export default function Hero() {
             </button>
             <button
               onClick={() => scrollTo("#contact")}
-              className="px-7 py-3 rounded-full text-sm font-semibold border transition-all duration-200 cursor-pointer"
+              className="px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold border transition-all duration-200 cursor-pointer whitespace-nowrap"
               style={{
                 borderColor: "rgba(155, 110, 212, 0.35)",
                 color: "var(--color-lavender)",
