@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiExternalLink, FiWind, FiDroplet, FiCode } from "react-icons/fi";
-import { MdDirectionsRun } from "react-icons/md";
-import { type ElementType } from "react";
+import { FiExternalLink } from "react-icons/fi";
+// import { type ElementType } from "react";
 import Image from "next/image";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
