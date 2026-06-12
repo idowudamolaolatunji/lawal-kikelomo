@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FiMapPin, FiGlobe, FiWind, FiDroplet, FiCode, FiMic } from "react-icons/fi";
+import { FiMapPin, FiGlobe, FiWind, FiDroplet, FiCode, FiMic, FiDownload } from "react-icons/fi";
 import { MdDirectionsRun } from "react-icons/md";
 import { type ElementType } from "react";
 
@@ -85,9 +85,8 @@ export default function About() {
               className="text-base leading-[1.95]"
               style={{ color: "var(--color-text)" }}
             >
-              Kikelomo Lawal — known as{" "}
-              <em style={{ color: "var(--color-lavender)" }}>Nana</em> or{" "}
-              <em style={{ color: "var(--color-lavender)" }}>allahspec</em> online — is a
+              Kikelomo Lawal, also known as{" "}
+              <em style={{ color: "var(--color-lavender)" }}>Air Quality Girl</em> — is a
               Lagos-based environmental advocate, community researcher, and frontend developer.
               She believes cities should be places where everyone can breathe freely, move
               safely, and live well.
@@ -144,6 +143,31 @@ export default function About() {
               />
               Based in Lagos · Working with UrbanBetter · Building the future
             </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: EASE, delay: 0.37 }}
+            >
+              <a
+                href="/Kikelomo_Lawal_CV_E.A.T.pdf"
+                download
+                className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200"
+                style={{ background: "var(--color-purple-mid)", color: "var(--color-text)" }}
+                onMouseEnter={(e) =>
+                  ((e.currentTarget as HTMLAnchorElement).style.background =
+                    "var(--color-purple-soft)")
+                }
+                onMouseLeave={(e) =>
+                  ((e.currentTarget as HTMLAnchorElement).style.background =
+                    "var(--color-purple-mid)")
+                }
+              >
+                <FiDownload size={15} />
+                Download Resume
+              </a>
+            </motion.div>
           </div>
 
           {/* ── Fact cards ── */}

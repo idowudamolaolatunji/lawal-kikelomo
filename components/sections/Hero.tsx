@@ -159,7 +159,8 @@ export default function Hero() {
             }}
           >
             <Image
-              src="https://pbs.twimg.com/profile_images/1804584419560198144/JtdcGEo5_400x400.jpg"
+              // src="https://pbs.twimg.com/profile_images/1804584419560198144/JtdcGEo5_400x400.jpg"
+              src="https://res.cloudinary.com/du8iw1efa/image/upload/v1781283976/compressed-IMG_9119.JPG-Photoroom_m2drj1.png"
               alt="Kikelomo Lawal"
               fill
               className="object-cover"

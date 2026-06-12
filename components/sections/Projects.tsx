@@ -27,7 +27,7 @@ const PROJECTS: {
       "A multiphase initiative in Itowolo, Lagos State — combining climate education, youth leadership, and advocacy to tackle persistent flooding and environmental degradation. Co-founded with Munnir Adams (Clime With Me).",
     status: "Active",
     statusColor: "var(--color-sage)",
-    visual: "https://wavewise.com/wp-content/uploads//2025/05/Wavewise-White.svg",
+    visual: "https://res.cloudinary.com/du8iw1efa/image/upload/v1781283975/IMG_0154.JPG_-_Copy_vcxsic.jpg",
     bgGradient: "135deg, rgba(61,31,107,0.55) 0%, rgba(13,13,18,0.75) 100%",
     href: "",
   },
