@@ -42,12 +42,12 @@ export default function Navbar() {
       >
         {/* Logo */}
         <a href="#" aria-label="Kikelomo Lawal — home" className="flex items-center gap-2">
-          <Image src="/kikelomo.png" alt="Kikelome" width={100} height={100} priority className="w-5 h-5" />
+          <Image src="/logo-kike.png" alt="Kikelome" width={100} height={100} priority className="w-5 h-5" />
           <span
             className="text-sm font-medium uppercase tracking-[0.18em]"
             style={{ color: "var(--color-text)", fontFamily: "var(--font-dm-mono)" }}
           >
-            allahspec
+            Air Quality Girl
           </span>
         </a>
 

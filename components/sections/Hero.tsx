@@ -56,7 +56,7 @@ export default function Hero() {
             className="text-xs font-semibold uppercase tracking-[0.22em]"
             style={{ color: "var(--color-mint)", fontFamily: "var(--font-dm-mono)" }}
           >
-            Environmental Advocate · Run Leader · Frontend Developer
+            Environmental Advocate · Run Leader · Climate Griot
           </motion.p>
 
           <motion.h1

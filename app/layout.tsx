@@ -22,12 +22,12 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Kikelomo Lawal — Environmental Advocate & Developer",
+  title: "Kikelomo Lawal — Environmental Advocate & Run Leader",
   description:
-    "Run Leader, CleanAir360 Founder, WaveWise Co-Founder, Frontend Developer. Lagos, Nigeria.",
+    "Run Leader, CleanAir360 Founder, WaveWise Co-Founder in Lagos, Nigeria.",
   keywords: [
     "Kikelomo Lawal",
-    "allahspec",
+    "Air Quality Girl",
     "air quality Lagos",
     "CleanAir360",
     "WaveWise",
@@ -36,9 +36,9 @@ export const metadata: Metadata = {
     "climate content creator",
   ],
   openGraph: {
-    title: "Kikelomo Lawal — allahspec",
+    title: "Kikelomo Lawal — Air Quality Girl",
     description:
-      "Environmental advocate, community researcher, run leader, and frontend developer based in Lagos.",
+      "Environmental advocate, community observer, run leader, and  based in Lagos.",
     url: "https://allahspec.com",
     siteName: "Kikelomo Lawal",
   },
