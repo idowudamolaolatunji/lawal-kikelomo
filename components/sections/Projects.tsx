@@ -131,7 +131,7 @@ export default function Projects() {
               >
                 {/* Visual header */}
                 <div
-                  className="h-36 flex items-center justify-center relative overflow-hidden"
+                  className="project-card-header h-36 flex items-center justify-center relative overflow-hidden"
                   style={{ background: `linear-gradient(${project.bgGradient})` }}
                 >
                   {/* <project.Visual size={52} style={{ color: project.tagColor, opacity: 0.75 }} /> */}

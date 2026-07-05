@@ -1,10 +1,17 @@
 "use client";
 
-import { type ReactNode } from "react";
+import { type ReactNode, useState, useEffect } from "react";
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
-import { FiChevronDown, FiWind, FiDroplet } from "react-icons/fi";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
+import { FiChevronDown, FiWind, FiDroplet, FiAward } from "react-icons/fi";
 import { MdDirectionsRun } from "react-icons/md";
+
+const CAROUSEL = [
+  "https://res.cloudinary.com/du8iw1efa/image/upload/c_fill,w_640,h_640,q_auto,f_auto/v1781283976/compressed-IMG_9119.JPG-Photoroom_m2drj1.png",
+  "https://res.cloudinary.com/du8iw1efa/image/upload/c_fill,w_640,h_640,q_auto,f_auto/v1781284870/IMG_9461.JPG_-_Copy_zvab77.jpg",
+  "https://res.cloudinary.com/du8iw1efa/image/upload/c_fill,w_640,h_640,q_auto,f_auto/v1783288813/WhatsApp_Image_2026-06-14_at_18.52.44_1_loy83v.jpg",
+  "https://res.cloudinary.com/du8iw1efa/image/upload/c_fill,w_640,h_640,q_auto,f_auto/v1783288811/WhatsApp_Image_2026-06-14_at_18.52.44_qvfevq.jpg",
+];
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -22,8 +29,8 @@ function FloatingChip({ children, delay, className }: ChipProps) {
       transition={{ duration: 0.5, delay, ease: EASE }}
       className={`absolute ${className} flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium border whitespace-nowrap`}
       style={{
-        background: "rgba(19, 17, 30, 0.92)",
-        borderColor: "var(--color-border)",
+        background: "var(--color-chip-bg)",
+        borderColor: "var(--color-chip-border)",
         color: "var(--color-lavender)",
         backdropFilter: "blur(10px)",
         WebkitBackdropFilter: "blur(10px)",
@@ -37,6 +44,12 @@ function FloatingChip({ children, delay, className }: ChipProps) {
 
 export default function Hero() {
   const prefersReduced = useReducedMotion();
+  const [imgIdx, setImgIdx] = useState(0);
+
+  useEffect(() => {
+    const t = setInterval(() => setImgIdx(i => (i + 1) % CAROUSEL.length), 4200);
+    return () => clearInterval(t);
+  }, []);
 
   const scrollTo = (id: string) =>
     document.querySelector(id)?.scrollIntoView({ behavior: "smooth" });
@@ -56,8 +69,8 @@ export default function Hero() {
             transition={{ duration: 0.5, ease: EASE, delay: 0.05 }}
             className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border text-xs"
             style={{
-              background: "rgba(19,17,30,0.6)",
-              borderColor: "rgba(126,206,196,0.22)",
+              background: "var(--color-status-bg)",
+              borderColor: "var(--color-status-border)",
               color: "var(--color-muted)",
               fontFamily: "var(--font-dm-mono)",
               backdropFilter: "blur(8px)",
@@ -71,7 +84,7 @@ export default function Hero() {
                 boxShadow: "0 0 6px var(--color-mint)",
               }}
             />
-            Currently: monitoring air quality across Lagos
+            Currently: Team Lead of Active Transport
           </motion.div>
 
           <motion.p
@@ -130,7 +143,7 @@ export default function Hero() {
             <button
               onClick={() => scrollTo("#projects")}
               className="px-5 sm:px-7 py-2.5 sm:py-3 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap"
-              style={{ background: "var(--color-purple-mid)", color: "var(--color-text)" }}
+              style={{ background: "var(--color-purple-mid)", color: "var(--color-white)" }}
               onMouseEnter={(e) =>
                 ((e.currentTarget as HTMLButtonElement).style.background =
                   "var(--color-purple-soft)")
@@ -168,44 +181,82 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        {/* ── Right: portrait + floating chips ── */}
+        {/* ── Right: portrait carousel + chips ── */}
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: EASE, delay: 0.3 }}
-          className="lg:col-span-2 relative flex justify-center items-center py-16 lg:py-0"
+          className="lg:col-span-2 relative flex flex-col justify-center items-center gap-5 py-16 lg:py-0"
         >
-          {/* Portrait circle */}
-          <div
-            className="relative w-60 h-60 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden"
-            style={{
-              border: "2px solid rgba(155, 110, 212, 0.3)",
-              boxShadow: "0 0 60px rgba(107, 63, 160, 0.2)",
-            }}
-          >
-            <Image
-              // src="https://pbs.twimg.com/profile_images/1804584419560198144/JtdcGEo5_400x400.jpg"
-              src="https://res.cloudinary.com/du8iw1efa/image/upload/v1781283976/compressed-IMG_9119.JPG-Photoroom_m2drj1.png"
-              alt="Kikelomo Lawal"
-              fill
-              className="object-cover"
-              priority
-            />
+          {/* Portrait circle with auto-cycling carousel */}
+          <div className="relative">
+            <div
+              className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-104 lg:h-104 rounded-full overflow-hidden"
+              style={{
+                border: "2px solid rgba(155, 110, 212, 0.3)",
+                boxShadow: "0 0 60px rgba(107, 63, 160, 0.2)",
+              }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={imgIdx}
+                  initial={{ opacity: 0, scale: 1.06 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.94 }}
+                  transition={{ duration: 0.7, ease: EASE }}
+                  className="absolute inset-0"
+                >
+                  <Image
+                    src={CAROUSEL[imgIdx]}
+                    alt="Kikelomo Lawal"
+                    fill
+                    className="object-cover object-top"
+                    priority={imgIdx === 0}
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Floating chips */}
+            <FloatingChip delay={0.65} className="-top-2 -left-4 sm:-left-10">
+              <MdDirectionsRun size={13} />
+              Run Leader @ UrbanBetter
+            </FloatingChip>
+            <FloatingChip delay={0.75} className="top-15 -right-25 sm:-right-8">
+              <FiAward size={12} />
+              Fellow · Cities &amp; Climate Lab
+            </FloatingChip>
+            <FloatingChip delay={0.88} className="bottom-16 -right-2 sm:-right-6">
+              <FiWind size={12} />
+              CleanAir360 Founder
+            </FloatingChip>
+            <FloatingChip delay={1.0} className="-bottom-2 left-0 sm:left-4">
+              <FiDroplet size={12} />
+              WaveWise Co-founder
+            </FloatingChip>
           </div>
 
-          {/* Floating chips */}
-          <FloatingChip delay={0.65} className="-top-2 -left-4 sm:-left-10">
-            <MdDirectionsRun size={13} />
-            Run Leader @ UrbanBetter
-          </FloatingChip>
-          <FloatingChip delay={0.8} className="bottom-16 -right-2 sm:-right-6">
-            <FiWind size={12} />
-            CleanAir360 Founder
-          </FloatingChip>
-          <FloatingChip delay={0.95} className="-bottom-2 left-0 sm:left-4">
-            <FiDroplet size={12} />
-            WaveWise Co-founder
-          </FloatingChip>
+          {/* Dot indicators */}
+          <div className="flex gap-2 items-center">
+            {CAROUSEL.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setImgIdx(i)}
+                aria-label={`View photo ${i + 1}`}
+                className="transition-all duration-300 cursor-pointer"
+                style={{
+                  width: i === imgIdx ? "18px" : "6px",
+                  height: "6px",
+                  borderRadius: "9999px",
+                  background: i === imgIdx
+                    ? "var(--color-purple-soft)"
+                    : "var(--color-border)",
+                  border: "none",
+                  padding: 0,
+                }}
+              />
+            ))}
+          </div>
         </motion.div>
       </div>
 

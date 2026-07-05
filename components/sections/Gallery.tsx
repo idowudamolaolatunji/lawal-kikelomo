@@ -27,6 +27,10 @@ const IMAGES: GalleryImage[] = [
   { id: "v1781284637/IMG_0246_h5ak7p.jpg",      width: 1518, height: 1600, rowSpan: 2 },
   { id: "v1781284829/IMG_9179_tnqlnw.jpg",      width: 1600, height: 1067, rowSpan: 1 },
   { id: "v1781284852/IMG_9183_h5xu7p.jpg",      width: 1600, height: 1067, rowSpan: 1 },
+  { id: "v1783288357/WhatsApp_Image_2026-06-15_at_13.28.05_2_tqztq4.jpg", width: 1080, height: 864, rowSpan: 1 },
+  { id: "v1783288358/WhatsApp_Image_2026-06-15_at_13.28.05_1_kt6fl4.jpg", width: 1080, height: 864, rowSpan: 1 },
+  { id: "v1783288358/WhatsApp_Image_2026-06-15_at_13.28.06_leuib9.jpg",   width: 1080, height: 864, rowSpan: 1 },
+  { id: "v1783288358/WhatsApp_Image_2026-06-15_at_13.28.05_pudehy.jpg",   width: 1080, height: 864, rowSpan: 1 },
 ];
 
 const thumbUrl = (id: string) =>

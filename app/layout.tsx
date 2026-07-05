@@ -49,6 +49,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Prevent flash of wrong theme on load */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){try{var t=localStorage.getItem('theme');document.documentElement.setAttribute('data-theme',t==='light'?'light':'dark');}catch(e){}})();`,
+          }}
+        />
+      </head>
       <body
         className={`${playfair.variable} ${dmSans.variable} ${dmMono.variable}`}
       >

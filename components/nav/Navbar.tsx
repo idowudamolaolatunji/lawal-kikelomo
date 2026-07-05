@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FiMenu, FiX } from "react-icons/fi";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import Image from "next/image";
+import ThemeToggle from "@/components/ui/ThemeToggle";
 
 const NAV_LINKS = [
   { label: "About",    href: "#about"    },
@@ -106,6 +107,8 @@ export default function Navbar() {
           >
             <FaLinkedinIn size={17} />
           </a>
+
+          <ThemeToggle />
 
           <button
             onClick={() => handleNavClick("#contact")}

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
-:root {
+/* ── Dark mode (default) ── */
+:root,
+[data-theme="dark"] {
   --color-bg:          #0D0D12;
   --color-surface:     #13111E;
   --color-purple-deep: #3D1F6B;
@@ -12,10 +14,34 @@
   --color-text:        #F0EDF8;
   --color-muted:       #8A85A0;
   --color-border:      rgba(155, 110, 212, 0.15);
+  --color-chip-bg:        rgba(19, 17, 30, 0.92);
+  --color-chip-border:    rgba(155, 110, 212, 0.3);
+  --color-status-bg:      rgba(19, 17, 30, 0.6);
+  --color-status-border:  rgba(126, 206, 196, 0.22);
+  --color-white:          #FFFFFF;
 
   --font-playfair: 'Playfair Display', serif;
   --font-dm-sans:  'DM Sans', sans-serif;
   --font-dm-mono:  'DM Mono', monospace;
+}
+
+/* ── Light mode ── */
+[data-theme="light"] {
+  --color-bg:          #FFFFFF;
+  --color-surface:     #F2EFF9;
+  --color-purple-deep: #3D1F6B;
+  --color-purple-mid:  #7A4DAE;
+  --color-purple-soft: #8B5EC8;
+  --color-lavender:    #5E2E9A;
+  --color-mint:        #167A73;
+  --color-sage:        #4A7A38;
+  --color-text:        #1A1228;
+  --color-muted:       #52496C;
+  --color-border:      rgba(107, 63, 160, 0.18);
+  --color-chip-bg:        rgba(255, 255, 255, 0.95);
+  --color-chip-border:    rgba(107, 63, 160, 0.22);
+  --color-status-bg:      rgba(255, 255, 255, 0.90);
+  --color-status-border:  rgba(22, 122, 115, 0.32);
 }
 
 @theme inline {
@@ -69,12 +95,25 @@ section[id] {
   border-bottom: 1px solid var(--color-border);
 }
 
+[data-theme="light"] .nav-glass {
+  background: rgba(255, 255, 255, 0.9);
+}
+
 /* Hero static gradient background */
 .hero-bg {
   background:
     radial-gradient(ellipse at 15% 55%, rgba(61, 31, 107, 0.35) 0%, transparent 55%),
     radial-gradient(ellipse at 82% 18%, rgba(126, 206, 196, 0.10) 0%, transparent 48%),
     radial-gradient(ellipse at 58% 85%, rgba(107, 63, 160, 0.22) 0%, transparent 45%),
+    var(--color-bg);
+}
+
+[data-theme="light"] .hero-bg {
+  background:
+    radial-gradient(ellipse at 0% 50%,   rgba(122, 77, 174, 0.22) 0%, transparent 58%),
+    radial-gradient(ellipse at 85% 8%,   rgba(22, 122, 115, 0.14) 0%, transparent 50%),
+    radial-gradient(ellipse at 55% 95%,  rgba(139, 94, 200, 0.14) 0%, transparent 48%),
+    linear-gradient(160deg, #F0EBFB 0%, #FFFFFF 55%),
     var(--color-bg);
 }
 
@@ -96,6 +135,11 @@ section[id] {
 	-webkit-backdrop-filter: blur(4px);
 	backdrop-filter: blur(4px);
 	transition: all 0.2s;
+}
+
+/* Project card visual headers: override dark gradient in light mode */
+[data-theme="light"] .project-card-header {
+  background: linear-gradient(135deg, rgba(122, 77, 174, 0.10) 0%, rgba(22, 122, 115, 0.10) 100%) !important;
 }
 
 /* Scroll indicator bounce */
