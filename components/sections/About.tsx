@@ -153,7 +153,7 @@ export default function About() {
                 href="/Kikelomo_Lawal_CV_E.A.T.pdf"
                 download
                 className="inline-flex items-center gap-2.5 px-6 py-3 rounded-full text-sm font-semibold transition-all duration-200"
-                style={{ background: "var(--color-purple-mid)", color: "var(--color-text)" }}
+                style={{ background: "var(--color-purple-mid)", color: "var(--color-white)" }}
                 onMouseEnter={(e) =>
                   ((e.currentTarget as HTMLAnchorElement).style.background =
                     "var(--color-purple-soft)")

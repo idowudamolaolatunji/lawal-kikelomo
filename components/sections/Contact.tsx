@@ -253,7 +253,7 @@ export default function Contact() {
                         className="inline-block w-4 h-4 rounded-full border-2"
                         style={{
                           borderColor: "rgba(240,237,248,0.3)",
-                          borderTopColor: "var(--color-text)",
+                          borderTopColor: "var(--color-white)",
                         }}
                       />
                     ) : (

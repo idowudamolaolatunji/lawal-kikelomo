@@ -140,7 +140,7 @@ export default function Footer() {
             © 2025 Kikelomo Lawal · allahspec
           </p>
           <p className="text-xs" style={{ color: "var(--color-muted)" }}>
-            Designed & built with intention. 💜
+            Designed & built with intention <a href="https://idowuolatunji.dev/">💜</a>
           </p>
         </div>
       </div>
