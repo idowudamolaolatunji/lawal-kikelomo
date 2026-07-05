@@ -2,7 +2,7 @@
 
 import { useState, type CSSProperties } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FiMail, FiCheck } from "react-icons/fi";
+import { FiMail, FiCheck, FiMic, FiSearch } from "react-icons/fi";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -48,8 +48,8 @@ const SOCIAL_LINKS = [
   {
     icon: <FiMail size={19} />,
     label: "Email",
-    handle: "kikelomolawal@gmail.con",
-    href: "mailto:kikelomolawal@gmail.con",
+    handle: "kikelomolawal@gmail.com",
+    href: "mailto:kikelomolawal@gmail.com",
     color: "var(--color-mint)",
   },
 ];
@@ -275,6 +275,65 @@ export default function Contact() {
             transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
             className="flex flex-col gap-4 lg:pt-2"
           >
+            {/* Collaboration type cards */}
+            <div className="flex flex-col gap-3 mb-4">
+              <p
+                className="text-[10px] uppercase tracking-widest mb-1"
+                style={{ color: "var(--color-muted)", fontFamily: "var(--font-dm-mono)" }}
+              >
+                Open to
+              </p>
+
+              {[
+                {
+                  Icon: FiMic,
+                  label: "Speaking & Panels",
+                  description: "Climate events, youth summits, community workshops",
+                  color: "var(--color-lavender)",
+                  bg: "rgba(155,110,212,0.08)",
+                },
+                {
+                  Icon: FiSearch,
+                  label: "Research & Partnerships",
+                  description: "NGOs, institutions, co-led field campaigns",
+                  color: "var(--color-mint)",
+                  bg: "rgba(126,206,196,0.08)",
+                },
+
+              ].map((type, i) => (
+                <motion.div
+                  key={type.label}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ duration: 0.4, ease: EASE, delay: 0.15 + i * 0.07 }}
+                  className="flex items-center gap-3.5 px-4 py-3.5 rounded-xl border"
+                  style={{
+                    background: "var(--color-bg)",
+                    borderColor: "var(--color-border)",
+                  }}
+                >
+                  <div
+                    className="shrink-0 w-8 h-8 rounded-lg flex items-center justify-center"
+                    style={{ background: type.bg }}
+                  >
+                    <type.Icon size={15} style={{ color: type.color }} />
+                  </div>
+                  <div>
+                    <p className="text-sm font-medium" style={{ color: "var(--color-text)" }}>
+                      {type.label}
+                    </p>
+                    <p
+                      className="text-xs mt-0.5"
+                      style={{ color: "var(--color-muted)" }}
+                    >
+                      {type.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
             <p className="text-sm mb-2" style={{ color: "var(--color-muted)" }}>
               Prefer direct contact? Reach out here:
             </p>

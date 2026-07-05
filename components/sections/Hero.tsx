@@ -49,6 +49,31 @@ export default function Hero() {
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid lg:grid-cols-5 gap-12 items-center py-28">
         {/* ── Left: text ── */}
         <div className="lg:col-span-3 flex flex-col gap-7 items-center lg:items-start text-center lg:text-left">
+          {/* Currently status */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: EASE, delay: 0.05 }}
+            className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border text-xs"
+            style={{
+              background: "rgba(19,17,30,0.6)",
+              borderColor: "rgba(126,206,196,0.22)",
+              color: "var(--color-muted)",
+              fontFamily: "var(--font-dm-mono)",
+              backdropFilter: "blur(8px)",
+              WebkitBackdropFilter: "blur(8px)",
+            }}
+          >
+            <span
+              className="w-1.5 h-1.5 rounded-full shrink-0"
+              style={{
+                background: "var(--color-mint)",
+                boxShadow: "0 0 6px var(--color-mint)",
+              }}
+            />
+            Currently: monitoring air quality across Lagos
+          </motion.div>
+
           <motion.p
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}

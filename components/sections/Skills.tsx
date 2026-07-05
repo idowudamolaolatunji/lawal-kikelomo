@@ -1,68 +1,49 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiFeather, FiCode } from "react-icons/fi";
+import { FiWind, FiUsers, FiMic } from "react-icons/fi";
+import { type ElementType } from "react";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-type Level = "Familiar" | "Proficient" | "Expert";
-
-const ENV_SKILLS: { name: string; level: Level }[] = [
-  { name: "Air Quality Monitoring & Analysis",  level: "Expert"    },
-  { name: "Community Research & Scoping",        level: "Expert"    },
-  { name: "Environmental Advocacy",              level: "Expert"    },
-  { name: "Citizen Science Data Collection",     level: "Proficient"},
-  { name: "Climate Content Creation",            level: "Proficient"},
-  { name: "Youth-Led Campaign Design",           level: "Proficient"},
-  { name: "Environmental Scoping",               level: "Expert"    },
-];
-
-const TECH_SKILLS: { name: string; level: Level }[] = [
-  { name: "Frontend Development (React / Next.js)", level: "Proficient"},
-  { name: "TypeScript & JavaScript",                level: "Proficient"},
-  { name: "Tailwind CSS",                           level: "Familiar"    },
-  { name: "Data Visualization",                     level: "Familiar"  },
-  { name: "Community Management",                   level: "Expert"    },
-  { name: "Digital Storytelling",                   level: "Expert"    },
-  { name: "Run Leadership & Event Coordination",    level: "Expert"    },
-];
-
-const FILL: Record<Level, string> = {
-  Familiar:  "38%",
-  Proficient: "65%",
-  Expert:     "88%",
-};
-
-function SkillRow({ name, level, color }: { name: string; level: Level; color: string }) {
-  return (
-    <div className="flex flex-col gap-1.5">
-      <div className="flex items-center justify-between gap-4">
-        <span className="text-sm" style={{ color: "var(--color-text)" }}>
-          {name}
-        </span>
-        <span
-          className="text-[10px] uppercase tracking-widest shrink-0"
-          style={{ color: "var(--color-muted)", fontFamily: "var(--font-dm-mono)" }}
-        >
-          {level}
-        </span>
-      </div>
-      <div
-        className="h-1 rounded-full overflow-hidden"
-        style={{ background: "rgba(155, 110, 212, 0.1)" }}
-      >
-        <motion.div
-          initial={{ width: 0 }}
-          whileInView={{ width: FILL[level] }}
-          viewport={{ once: true, amount: 0.6 }}
-          transition={{ duration: 0.9, ease: EASE, delay: 0.1 }}
-          className="h-full rounded-full"
-          style={{ background: color }}
-        />
-      </div>
-    </div>
-  );
+interface ExpertiseArea {
+  Icon: ElementType;
+  title: string;
+  description: string;
+  tags: string[];
+  iconColor: string;
+  tagColor: string;
 }
+
+const AREAS: ExpertiseArea[] = [
+  {
+    Icon: FiWind,
+    title: "Air Quality & Environment",
+    description:
+      "Field-based monitoring and analysis of urban air pollution, with a focus on Lagos communities most impacted by environmental inequality.",
+    tags: ["Air Quality Monitoring", "Citizen Science", "Field Data Collection", "Environmental Scoping", "PM2.5 Analysis"],
+    iconColor: "var(--color-mint)",
+    tagColor: "rgba(126,206,196,0.12)",
+  },
+  {
+    Icon: FiUsers,
+    title: "Community & Advocacy",
+    description:
+      "Designing and leading campaigns that turn environmental data into community action — from vulnerable neighbourhoods to national policy conversations.",
+    tags: ["Community Research", "Youth Leadership", "Campaign Design", "Policy Engagement", "Run Leadership"],
+    iconColor: "var(--color-sage)",
+    tagColor: "rgba(126,206,196,0.08)",
+  },
+  {
+    Icon: FiMic,
+    title: "Climate Communication",
+    description:
+      "Translating complex environmental issues into compelling stories for public audiences, online platforms, and live events.",
+    tags: ["Public Speaking", "Digital Storytelling", "Climate Content", "Social Media", "Workshop Facilitation"],
+    iconColor: "var(--color-lavender)",
+    tagColor: "rgba(155,110,212,0.12)",
+  },
+];
 
 export default function Skills() {
   return (
@@ -76,7 +57,7 @@ export default function Skills() {
           className="text-xs font-semibold uppercase tracking-[0.2em] mb-3"
           style={{ color: "var(--color-mint)", fontFamily: "var(--font-dm-mono)" }}
         >
-          Skills
+          Expertise
         </motion.p>
 
         <motion.h2
@@ -84,7 +65,7 @@ export default function Skills() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, ease: EASE, delay: 0.08 }}
-          className="mb-14"
+          className="mb-4"
           style={{
             fontFamily: "var(--font-playfair)",
             fontSize: "clamp(2rem, 4vw, 3rem)",
@@ -95,74 +76,70 @@ export default function Skills() {
           What I bring to the table.
         </motion.h2>
 
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-          {/* Environmental skills */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: EASE }}
-            className="flex flex-col gap-5"
-          >
-            <div className="flex items-center gap-2.5 mb-2">
-              <FiFeather size={18} style={{ color: "var(--color-mint)" }} />
-              <h3
-                className="text-lg font-semibold"
-                style={{ color: "var(--color-mint)", fontFamily: "var(--font-playfair)" }}
-              >
-                Environmental Skills
-              </h3>
-            </div>
-            {ENV_SKILLS.map((skill, i) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.4, delay: 0.05 + i * 0.06 }}
-              >
-                <SkillRow
-                  name={skill.name}
-                  level={skill.level}
-                  color="var(--color-mint)"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.14 }}
+          className="max-w-2xl text-base leading-relaxed mb-14"
+          style={{ color: "var(--color-muted)" }}
+        >
+          Four intersecting disciplines — grounded in fieldwork, driven by community, and built to last.
+        </motion.p>
 
-          {/* Tech skills */}
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}
-            className="flex flex-col gap-5"
-          >
-            <div className="flex items-center gap-2.5 mb-2">
-              <FiCode size={18} style={{ color: "var(--color-purple-soft)" }} />
-              <h3
-                className="text-lg font-semibold"
-                style={{ color: "var(--color-purple-soft)", fontFamily: "var(--font-playfair)" }}
-              >
-                Tech & Digital Skills
-              </h3>
-            </div>
-            {TECH_SKILLS.map((skill, i) => (
-              <motion.div
-                key={skill.name}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.4, delay: 0.05 + i * 0.06 }}
-              >
-                <SkillRow
-                  name={skill.name}
-                  level={skill.level}
-                  color="var(--color-purple-soft)"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
+        <div className="grid sm:grid-cols-2 gap-5">
+          {AREAS.map((area, i) => (
+            <motion.div
+              key={area.title}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.55, ease: EASE, delay: i * 0.08 }}
+              className="flex flex-col gap-5 p-7 rounded-2xl border"
+              style={{
+                background: "var(--color-bg)",
+                borderColor: "var(--color-border)",
+              }}
+            >
+              {/* Icon + title */}
+              <div className="flex items-start gap-4">
+                <div
+                  className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center"
+                  style={{ background: area.tagColor }}
+                >
+                  <area.Icon size={19} style={{ color: area.iconColor }} />
+                </div>
+                <h3
+                  className="text-base font-semibold leading-snug pt-1"
+                  style={{ color: "var(--color-text)", fontFamily: "var(--font-playfair)" }}
+                >
+                  {area.title}
+                </h3>
+              </div>
+
+              {/* Description */}
+              <p className="text-sm leading-[1.85]" style={{ color: "var(--color-muted)" }}>
+                {area.description}
+              </p>
+
+              {/* Skill tags */}
+              <div className="flex flex-wrap gap-2 mt-auto">
+                {area.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[11px] px-3 py-1 rounded-full"
+                    style={{
+                      background: area.tagColor,
+                      color: area.iconColor,
+                      fontFamily: "var(--font-dm-mono)",
+                    }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

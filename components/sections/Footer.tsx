@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FiMail, FiWind } from "react-icons/fi";
+import { FiMail } from "react-icons/fi";
 
 const NAV_LINKS = [
   { label: "About",    href: "#about"    },
@@ -31,8 +32,8 @@ const SOCIAL = [
   },
   {
     icon: <FiMail size={16} />,
-    label: "kikelomolawal@gmail.con",
-    href: "mailto:kikelomolawal@gmail.con",
+    label: "kikelomolawal@gmail.com",
+    href: "mailto:kikelomolawal@gmail.com",
   },
 ];
 
@@ -50,16 +51,16 @@ export default function Footer() {
           {/* Brand */}
           <div className="flex flex-col gap-4">
             <div className="flex items-center gap-2">
-              <FiWind size={15} style={{ color: "var(--color-mint)" }} />
+              <Image src="/logo-kike.png" alt="allahspec" width={100} height={100} className="w-5 h-5" />
               <span
                 className="text-sm font-medium uppercase tracking-[0.18em]"
                 style={{ color: "var(--color-text)", fontFamily: "var(--font-dm-mono)" }}
               >
-                allahspec
+                AIR QUALITY GIRL
               </span>
             </div>
             <p className="text-sm leading-relaxed" style={{ color: "var(--color-muted)" }}>
-              Environmental advocate, run leader, and frontend developer based in Lagos, Nigeria.
+              Environmental advocate, run leader, and climate communicator based in Lagos, Nigeria.
             </p>
           </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { FiExternalLink, FiWind, FiDroplet, FiCode, FiMic } from "react-icons/fi";
+import { FiExternalLink, FiWind, FiDroplet, FiMic } from "react-icons/fi";
 import { MdDirectionsRun } from "react-icons/md";
 import { type ElementType } from "react";
 
@@ -44,16 +44,6 @@ const ROLES: {
     period: "2023 — Present",
     description:
       "Youth-led climate resilience initiative addressing flooding and environmental degradation in Itowolo, Lagos. Launched June 5 — World Environment Day.",
-    href: "",
-  },
-  {
-    Icon: FiCode,
-    org: "Frontend Development",
-    orgColor: "var(--color-purple-soft)",
-    title: "Developer",
-    period: "Ongoing",
-    description:
-      "Builds web interfaces and digital tools — passionate about tech that serves environmental and community causes. React, Next.js, TypeScript.",
     href: "",
   },
   {

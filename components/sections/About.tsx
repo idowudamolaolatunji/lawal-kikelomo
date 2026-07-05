@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { FiMapPin, FiGlobe, FiWind, FiDroplet, FiCode, FiMic, FiDownload } from "react-icons/fi";
+import { FiMapPin, FiGlobe, FiWind, FiDroplet, FiMic, FiDownload } from "react-icons/fi";
 import { MdDirectionsRun } from "react-icons/md";
 import { type ElementType } from "react";
 
@@ -14,7 +14,6 @@ const FACT_CARDS: { Icon: ElementType; label: string; value: string }[] = [
   { Icon: MdDirectionsRun,  label: "Activity",   value: "Cityzens Run Leader"   },
   { Icon: FiDroplet,        label: "Initiative", value: "WaveWise Co-Founder"   },
   { Icon: FiWind,           label: "Initiative", value: "CleanAir360 Founder"   },
-  { Icon: FiCode,           label: "Role",       value: "Frontend Developer"    },
   { Icon: FiMic,            label: "Role",       value: "Climate Speaker"       },
 ];
 
@@ -124,9 +123,9 @@ export default function About() {
               She is also a co-founder of{" "}
               <strong style={{ color: "var(--color-sage)", fontWeight: 600 }}>WaveWise</strong>
               , a multiphase campaign blending climate education, youth leadership, and
-              institutional accountability. Beyond the field, she creates climate content,
-              speaks at events, and codes frontend interfaces — bridging the gap between
-              environmental science and technology.
+              institutional accountability. Beyond the field, she creates climate content
+              and speaks at events — bridging the gap between environmental science and
+              everyday life.
             </motion.p>
 
             <motion.p
