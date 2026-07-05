@@ -156,7 +156,7 @@ export default function Speaking() {
               el.style.borderColor = "var(--color-purple-soft)";
             }}
           >
-            Book Me for Your Event →
+            Get in Touch →
           </a>
         </motion.div>
 
